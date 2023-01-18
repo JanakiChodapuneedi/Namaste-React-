@@ -1,67 +1,10 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-// Manipulate the HTML DOM using Javscript
-// const heading = document.createElement("h1");
-// heading.innerHTML = "Namaste Everyone";
-// const root = document.getElementById("root");
-// root.appendChild(heading);
+export const IMG_CDN_URL =
+  "https://tse1.mm.bing.net/th?id=OIP.5g7g-Qnr_bnxkbw_eQaoMwHaEp&pid=Api";
 
-// Manipulate the HTML DOM using React
-
-// Create nested React Elements
-// const heading = React.createElement(
-//     "h1",
-//     {
-//       id: "title",
-//     },
-//     "heading"
-//   );
-//   const heading1 = React.createElement(
-//     "h1",
-//     {
-//       id: "title",
-//     },
-//     "heading1"
-//   );
-
-//   const container = React.createElement(
-//     "div",
-//     {
-//       id: "container",
-//     },
-//     [heading, heading1]
-//   );
-const Title = () => {
-  return (
-    <a href="/">
-      <img
-        alt="logo"
-        className="logo"
-        src="https://tse1.mm.bing.net/th?id=OIP.5g7g-Qnr_bnxkbw_eQaoMwHaEp&pid=Api"
-      />
-    </a>
-  );
-};
-const HeaderComponent = () => {
-  return (
-    <div className="header">
-      <Title />
-      <div className="nav-items">
-        <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Contact us</li>
-          <li>Cart</li>
-        </ul>
-      </div>
-    </div>
-  );
-};
-const restaurantlist = [
+export const restaurantlist = [
   {
     type: "restaurant",
-    data: 
-    {
+    data: {
       type: "F",
       id: "458207",
       name: "KFC",
@@ -421,40 +364,3 @@ const restaurantlist = [
     subtype: "basic",
   },
 ];
-
-const RestaurantCard = ({name,cuisines,deliveryTime,cloudinaryImageId}) => {
-  return (
-    <div className="card">
-      <img src={"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/" +cloudinaryImageId} />
-      <h2>{name}</h2>
-      <h3>{cuisines }</h3>
-      <h4>{deliveryTime}</h4>
-    </div>
-  );
-};
-
-const Body = () => {
-  return (
-    <div className="restaurant-list">
-      {restaurantlist.map((restaurant) => {
-        return <RestaurantCard { ...restaurant.data } key={restaurant.data.id} />;
-      })}
-    </div>
-  );
-};
-const Footer = () => {
-  return <div> Footer </div>;
-};
-const Applayout = () => {
-  return (
-    <>
-      <HeaderComponent />
-      <Body />
-      <Footer />
-    </>
-  );
-};
-// create root using createRoot
-const root = ReactDOM.createRoot(document.getElementById("root"));
-// passing react element inside root
-root.render(<Applayout />);
