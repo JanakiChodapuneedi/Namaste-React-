@@ -16,7 +16,7 @@ const Body = () => {
   
     const [searchTxt,setSearchText]=useState("");
     const [allRestaurants,setAllRestaurants]=useState([]);
-    const [filteredRestaurants,setFilteredRestaurants] =useState([]);
+    const [filteredRestaurants,setFilteredRestaurants] =useState(null);
     const searchFilter = (searchTxt,restaurants) =>{
       const filteredData = allRestaurants.filter((restaurant)=>restaurant.data.name.toLowerCase().includes(searchTxt.toLowerCase()));
        return filteredData;
@@ -38,10 +38,10 @@ const Body = () => {
     setFilteredRestaurants(data)}}
     >Search</button>
     </div>
-   { (filteredRestaurants?.length===0)? <h1> No restaurants matched with your search</h1>: 
+   { (!filteredRestaurants)? <h1> No restaurants matched with your search</h1>: 
 
     <div className="restaurant-list">
-      {filteredRestaurants.map((restaurant) => {
+      {filteredRestaurants?.map((restaurant) => {
         return <RestaurantCard {...restaurant.data} key={restaurant.data.id} />;
       })}
     </div> }
