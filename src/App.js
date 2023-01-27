@@ -6,7 +6,7 @@ import Footer from "./components/Footer";
 import { createBrowserRouter, RouterProvider,Outlet} from "react-router-dom";
 import Error from "./components/Error";
 import About from "./components/About";
-import Contact from "./Contact";
+import Contact from "./components/Contact";
 import RestaurantMenu from "./components/RestaurantMenu";
 const Applayout = () => {
   return (
