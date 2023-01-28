@@ -2,6 +2,7 @@ import { useState } from "react";
 import { IMG_CDN_URL } from "../constants";
 import { Link } from "react-router-dom";
 
+
 const Title = () => {
   return (
     <a href="/">
@@ -23,7 +24,9 @@ const Header = () => {
           <Link to='/'><li>Home</li></Link>
           <Link to='/about'><li>About</li></Link>
           <Link to='/contact'><li>Contact us</li></Link>
+          <Link to='/instamart'><li>Instamart</li></Link>
           <li>Cart</li>
+
         </ul>
       </div>
       {!isloggedIn ? (<button 

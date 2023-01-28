@@ -2,13 +2,16 @@ import { useState, useEffect } from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import { searchFilter } from "../Utils/helper";
+import { ALL_RESTAURANT_DATA_CDN_URL } from "../constants";
+import useOffline from "../Utils/useOffline";
 const Body = () => {
 
   useEffect(()=>{
     getRestaurants();
   },[]);
   async function getRestaurants(){
-    const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.8996676&lng=77.4826837&page_type=DESKTOP_WEB_LISTING");
+    const data = await fetch(ALL_RESTAURANT_DATA_CDN_URL);
     const json = await data.json();
     setAllRestaurants(json?.data?.cards[2]?.data?.data?.cards);
     setFilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards);
@@ -17,11 +20,15 @@ const Body = () => {
     const [searchTxt,setSearchText]=useState("");
     const [allRestaurants,setAllRestaurants]=useState([]);
     const [filteredRestaurants,setFilteredRestaurants] =useState(null);
-    const searchFilter = (searchTxt,restaurants) =>{
-      const filteredData = allRestaurants.filter((restaurant)=>restaurant.data.name.toLowerCase().includes(searchTxt.toLowerCase()));
-       return filteredData;
-    };
-   
+
+    const offline = useOffline();
+
+    if(offline){
+      return <div>
+        <h1>You are Offline</h1>
+        <h2>Please check your internet connection</h2>
+        </div>
+    }
     
     return allRestaurants?.length===0 ? <Shimmer/> : (
     <>
