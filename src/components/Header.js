@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { IMG_CDN_URL } from "../constants";
 import { Link } from "react-router-dom";
+import useOffline from "../Utils/useOffline";
 
 
 const Title = () => {
@@ -15,6 +16,8 @@ const Title = () => {
   );
 };
 const Header = () => {
+  
+  const offline = useOffline();
   const [isloggedIn,setIsLoggedIn]=useState(false);
   return (
     <div className="flex justify-between bg-blue-300 shadow-lg">
@@ -29,6 +32,7 @@ const Header = () => {
 
         </ul>
       </div>
+      <h1 className="m-10">{!offline ? "✅" : "🔴"}</h1>
       {!isloggedIn ? (<button 
       onClick = {() => setIsLoggedIn(true)}
        >Login</button>) 

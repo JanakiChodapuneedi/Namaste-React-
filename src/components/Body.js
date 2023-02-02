@@ -41,7 +41,7 @@ const Body = () => {
     />
     <button className="p-2 m-2 bg-purple-400 hover:bg-pink-300 text-white rounded-lg"
     onClick={()=>{
-      const data = searchFilter(searchTxt,filteredRestaurants);
+      const data = searchFilter(searchTxt,allRestaurants);
     setFilteredRestaurants(data)}}
     >Search</button>
     </div>
