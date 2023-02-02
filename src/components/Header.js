@@ -8,7 +8,7 @@ const Title = () => {
     <a href="/">
       <img
         alt="logo"
-        className="logo"
+        className= "p-2 h-28"
         src= {IMG_CDN_URL}
       />
     </a>
@@ -17,15 +17,15 @@ const Title = () => {
 const Header = () => {
   const [isloggedIn,setIsLoggedIn]=useState(false);
   return (
-    <div className="header">
+    <div className="flex justify-between bg-blue-300 shadow-lg">
       <Title />
       <div className="nav-items">
-        <ul>
-          <Link to='/'><li>Home</li></Link>
-          <Link to='/about'><li>About</li></Link>
-          <Link to='/contact'><li>Contact us</li></Link>
-          <Link to='/instamart'><li>Instamart</li></Link>
-          <li>Cart</li>
+        <ul className="flex py-10  ">
+          <Link to='/'><li className="px-2">Home</li></Link>
+          <Link to='/about'><li className="px-2">About</li></Link>
+          <Link to='/contact'><li className="px-2">Contact us</li></Link>
+          <Link to='/instamart'><li className="px-2">Instamart</li></Link>
+          <li className="px-2">Cart</li>
 
         </ul>
       </div>

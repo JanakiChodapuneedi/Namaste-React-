@@ -32,14 +32,14 @@ const Body = () => {
     
     return allRestaurants?.length===0 ? <Shimmer/> : (
     <>
-    <div className="search-container">
+    <div className="search-container p-5 m-2 bg-blue-200 ">
     <input type="text"
-        className="search-input"
+        className="hover:bg-green-100"
         placeholder="Search"
         value= {searchTxt}
         onChange = {(e) => setSearchText(e.target.value)}
     />
-    <button className="search-btn"
+    <button className="p-2 m-2 bg-purple-400 hover:bg-pink-300 text-white rounded-lg"
     onClick={()=>{
       const data = searchFilter(searchTxt,filteredRestaurants);
     setFilteredRestaurants(data)}}
@@ -47,7 +47,7 @@ const Body = () => {
     </div>
    { (!filteredRestaurants)? <h1> No restaurants matched with your search</h1>: 
 
-    <div className="restaurant-list">
+    <div className="flex flex-wrap">
       {filteredRestaurants?.map((restaurant) => {
         return(
           <Link to={"/restaurant/"+restaurant.data.id} key={restaurant.data.id}>
