@@ -1,12 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { searchFilter } from "../Utils/helper";
 import { ALL_RESTAURANT_DATA_CDN_URL } from "../constants";
 import useOffline from "../Utils/useOffline";
-const Body = () => {
+import UserContext from "../Utils/userContext";
 
+const Body = () => {
+   const {user,setUser} = useContext(UserContext);
   useEffect(()=>{
     getRestaurants();
   },[]);
@@ -44,6 +46,11 @@ const Body = () => {
       const data = searchFilter(searchTxt,allRestaurants);
     setFilteredRestaurants(data)}}
     >Search</button>
+    <input value={user.name}
+    onChange={(e)=>setUser({
+      name : e.target.value,
+      email : "updatedmail.com"
+    })}/>
     </div>
    { (!filteredRestaurants)? <h1> No restaurants matched with your search</h1>: 
 

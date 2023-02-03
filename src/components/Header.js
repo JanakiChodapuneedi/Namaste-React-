@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState,useContext } from "react";
 import { IMG_CDN_URL } from "../constants";
 import { Link } from "react-router-dom";
 import useOffline from "../Utils/useOffline";
+import UserContext from "../Utils/userContext";
 
 
 const Title = () => {
@@ -16,7 +17,7 @@ const Title = () => {
   );
 };
 const Header = () => {
-  
+  const {user} = useContext(UserContext);
   const offline = useOffline();
   const [isloggedIn,setIsLoggedIn]=useState(false);
   return (
@@ -32,6 +33,7 @@ const Header = () => {
 
         </ul>
       </div>
+      <h1 className="m-10">{user.name}</h1>
       <h1 className="m-10">{!offline ? "✅" : "🔴"}</h1>
       {!isloggedIn ? (<button 
       onClick = {() => setIsLoggedIn(true)}
