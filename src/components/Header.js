@@ -3,6 +3,7 @@ import { IMG_CDN_URL } from "../constants";
 import { Link } from "react-router-dom";
 import useOffline from "../Utils/useOffline";
 import UserContext from "../Utils/userContext";
+import { useSelector } from "react-redux";
 
 
 const Title = () => {
@@ -20,6 +21,9 @@ const Header = () => {
   const {user} = useContext(UserContext);
   const offline = useOffline();
   const [isloggedIn,setIsLoggedIn]=useState(false);
+
+  const cartItems = useSelector(store => store.cart.items);
+
   return (
     <div className="flex justify-between bg-blue-300 shadow-lg">
       <Title />
@@ -29,7 +33,7 @@ const Header = () => {
           <Link to='/about'><li className="px-2">About</li></Link>
           <Link to='/contact'><li className="px-2">Contact us</li></Link>
           <Link to='/instamart'><li className="px-2">Instamart</li></Link>
-          <li className="px-2">Cart</li>
+          <Link to='/cart'><li className="px-2">Cart - {cartItems.length} items</li></Link>
 
         </ul>
       </div>
