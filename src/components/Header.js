@@ -11,7 +11,7 @@ const Title = () => {
     <a href="/">
       <img
         alt="logo"
-        className= "p-2 h-28"
+        className= "p-2 h-20"
         src= {IMG_CDN_URL}
       />
     </a>
@@ -25,10 +25,10 @@ const Header = () => {
   const cartItems = useSelector(store => store.cart.items);
 
   return (
-    <div className="flex justify-between bg-blue-300 shadow-lg">
+    <div className="flex justify-between bg-white shadow-lg">
       <Title />
       <div className="nav-items">
-        <ul className="flex py-10  ">
+        <ul className="flex py-5  ">
           <Link to='/'><li className="px-2">Home</li></Link>
           <Link to='/about'><li className="px-2">About</li></Link>
           <Link to='/contact'><li className="px-2">Contact us</li></Link>
@@ -37,9 +37,9 @@ const Header = () => {
 
         </ul>
       </div>
-      <h1 className="m-10">{user.name}</h1>
-      <h1 className="m-10">{!offline ? "✅" : "🔴"}</h1>
-      {!isloggedIn ? (<button 
+      <h1 className="m-5">{user.name}</h1>
+      <h1 className="m-5">{!offline ? "✅" : "🔴"}</h1>
+      {!isloggedIn ? (<button  className="px-5"
       onClick = {() => setIsLoggedIn(true)}
        >Login</button>) 
       :  (<button 

@@ -2,10 +2,8 @@ import { useContext } from "react";
 import UserContext from "../Utils/userContext";
 const Footer = () => {
   const {user} = useContext(UserContext) ;
-    return (<div> 
-      <h1>this site is developed by</h1>
-       <h5>{user.name}</h5>
-        <h6>{user.email}</h6>
+    return (<div className="bg-black  w-full h-16 p-5    bottom-0"> 
+      <h1 className="text-white font-bold justify-items-center">This site is developed by {user.name}</h1>
        </div>)
   };
 

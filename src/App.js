@@ -21,7 +21,7 @@ const Instamart = lazy(() => import("./components/Instamart"));
 
 const Applayout = () => {
   const [user, setUser] = useState({
-     name: "Janaki", email: "namaste@gmail.com" ,
+     name: "Sri Lakshmi Janaki Chodapuneedi", email: "namaste@gmail.com" ,
   });
   return (
     <Provider store={store}>
