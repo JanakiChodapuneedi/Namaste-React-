@@ -21,7 +21,7 @@ const Cart = () => {
     <div className='flex'>
    { cartItems.map((item, key={id}) => (
         <div className="w-[200px] p-2 m-2 shadow-lg bg-purple-100">
-        <img src={SWIGGY_IMG_CDN_URL + item.cloudinaryImageId} />
+        <img src={SWIGGY_IMG_CDN_URL + item.imageId} />
         <h2 className="font-bold text-xl">{item.name}</h2>
         <h3>{item.description }</h3>
         <h4>Price in rupees: {item.price /100}</h4>
