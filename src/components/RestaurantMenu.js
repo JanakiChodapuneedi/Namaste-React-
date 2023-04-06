@@ -51,9 +51,10 @@ const RestaurantMenu = () => {
           )?.map((item) => (
             <div className="flex bg-gray-300 shadow-lg m-4 w-3/4" key={item?.card?.info?.id}> 
               <div className="w-3/4">
-                <div > {item?.card?.info?.name} </div>
+                <div className="font-semibold"> {item?.card?.info?.name} </div>
                 <div> {item?.card?.info?.price / 100} Rupees </div>
                 <div>{item?.card?.info?.description}</div>
+                <div>{item?.card?.info?.ratings.aggregatedRating.rating} Rating</div>
               </div>
               <div>
                 <button
