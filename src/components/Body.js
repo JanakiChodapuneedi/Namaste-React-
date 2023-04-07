@@ -52,7 +52,7 @@ const Body = () => {
       email : "updatedmail.com"
     })}/>
     </div>
-    <div className="font-bold text-lg bg-red-400 text-center">Kindly Please Allow CORS: Access-Control-Allow-Origin chrome extension for viewing this app.</div>
+    {/* <div className="font-bold text-lg bg-red-400 text-center">Kindly Please Allow CORS: Access-Control-Allow-Origin chrome extension for viewing this app.</div> */}
    { (!filteredRestaurants)? <h1> No restaurants matched with your search</h1>: 
 
     <div className="flex flex-wrap">
