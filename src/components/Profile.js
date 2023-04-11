@@ -22,7 +22,12 @@ const Profile = () => {
             <h2>GitHub Id : {profileInfo.id} </h2>
             <h3>GitHub Name : {profileInfo.login}</h3>
         </div>
-    ):<Shimmer/>
+    ):<div> 
+        <h2>GitHub Id : 122475333</h2>
+        <h3>GitHub Name : Janaki Chodapuneedi</h3>
+
+    </div>
+
 }
 
 export default Profile;
