@@ -11,6 +11,7 @@ const Profile = () => {
     )
     async function getProfileInfo(){
         data = await fetch("https://api.github.com/users/JanakiChodapuneedi");
+        console.log("data :"+data);
         json = await data.json();
         setProfileInfo(json);
         console.log(json)
